@@ -10,4 +10,6 @@ One day. One day...
 Right now, HTML, CSS and Javascript, and one of my projects is a little React-based thingydoodle. But more will come, both in my understanding of different technologies and in my understandings of the ones I know already.
 
 ## Well Where is it, Then?
+[The live page is right here!](https://rookieprime.github.io/portfolio/)
+
 [The repository's right here!](https://github.com/RookiePrime/portfolio)
