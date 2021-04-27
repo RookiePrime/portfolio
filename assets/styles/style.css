@@ -1,0 +1,174 @@
+/* The basics, setting things to a nice neutral before styling proper. */
+
+:root {
+    --primary-font-colour: whitesmoke;
+    --primary-bg-colour: black;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #a8adba;
+   font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Now comes the Header and Hero styles. */
+
+header {
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primary-bg-colour);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+header a {
+    color: var(--primary-font-colour);
+}
+
+/* Put the opposite ul and li margins together to save space */
+.page-nav ul,
+.web-nav li {
+    margin-left: 10px;
+}
+
+.page-nav li,
+.web-nav ul {
+    margin-right: 10px;
+}
+
+.hero {
+    background-color: var(--primary-bg-colour);
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-font-colour);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 16px;
+    font-style: italic;
+    padding: 5px 50px;
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+}
+
+/* Here's the Main stuffs, the big beefy section with sections within it. */
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main h2 {
+    margin-top: 0;
+    font-size: 28px;
+    padding: 0 50px 10px 50px;
+    border-bottom: 2px solid black;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+section .sec-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* First and foremost, the styles for the main event: the Projects */
+
+#projects .proj-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#projects .project {
+    min-height: 150px;
+    min-width: 250px;
+    flex: 0 30%;
+    background-color: burlywood;
+    margin: 5px;
+    box-shadow: 0 0 10px black;
+    transition: all 0.3s ease-out;
+}
+
+#projects .project:hover {
+    transform: scale(1.2);
+}
+
+/* Secondly, styling for me rambling about me in the About section */
+
+#about {
+    background-color: var(--primary-bg-colour);
+    color: var(--primary-font-colour);
+}
+
+#about h2 {
+    border-bottom: 2px solid var(--primary-font-colour);
+}
+
+#about p {
+    padding: 0 5px;
+}
+
+/* Third and finally, the stylez for the Skills that should hopefully, in due time, pay the bills */
+
+#skills ul {
+    padding: 10px 40px;
+    list-style-type: none;
+}
+
+#skills li {
+    display: flex;
+    align-items: center;
+}
+
+#skills h4 {
+    font-weight: bold;
+    margin: 0;
+    flex: 0 20%;
+}
+
+#skills p {
+    flex: 0 80%;
+}
+
+/* And here's the Footer's styles, at long last. Little tiny footer. */
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-bg-colour);
+    color: var(--primary-font-colour);
+}
