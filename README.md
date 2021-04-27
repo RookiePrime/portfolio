@@ -9,6 +9,10 @@ One day. One day...
 ## What skills does it showcase?
 Right now, HTML, CSS and Javascript, and one of my projects is a little React-based thingydoodle. But more will come, both in my understanding of different technologies and in my understandings of the ones I know already.
 
+## Sounds Fancy, but What Does It Look Like?
+Behold!
+![The ugly first effort!](./assets/images/portfolio-0.1.png)
+
 ## Well Where is it, Then?
 [The live page is right here!](https://rookieprime.github.io/portfolio/)
 
