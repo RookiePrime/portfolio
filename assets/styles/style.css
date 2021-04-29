@@ -28,7 +28,7 @@ header {
     background-color: var(--primary-bg-colour);
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 50;
 }
 
 header nav {
@@ -121,10 +121,41 @@ section .sec-container {
     margin: 5px;
     box-shadow: 0 0 10px black;
     transition: all 0.3s ease-out;
+    position: relative;
 }
 
-#projects .project:hover {
+#projects .project img {
+    height: 100%;
+    width: 100%;
+}
+
+#projects .project:hover,
+#projects .project:focus {
     transform: scale(1.2);
+    z-index: 20;
+}
+
+#projects .project:hover .preview-text,
+#projects .project:focus .preview-text {
+    opacity: 1;
+}
+
+#projects .preview-text {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    display: inline;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 55px);
+    z-index: 30;    
+    transition: all 0.3s ease-out;
+    text-align: center;
 }
 
 /* Secondly, styling for me rambling about me in the About section */
