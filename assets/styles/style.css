@@ -77,8 +77,8 @@ header a {
     font-size: 16px;
     font-style: italic;
     padding: 5px 50px;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid var(--primary-font-colour);
+    border-bottom: 1px solid var(--primary-font-colour);
 }
 
 /* Here's the Main stuffs, the big beefy section with sections within it. */
@@ -113,20 +113,37 @@ section .sec-container {
     justify-content: center;
 }
 
-#projects .project {
-    min-height: 150px;
-    min-width: 250px;
-    flex: 0 30%;
-    background-color: burlywood;
-    margin: 5px;
-    box-shadow: 0 0 10px black;
-    transition: all 0.3s ease-out;
-    position: relative;
+/* These particular selectors need to come before the general .project one, or their style will be overwritten. */
+#projects .pokecards {
+    background: url(../images/pokeCards-preview.png);
 }
 
-#projects .project img {
-    height: 100%;
-    width: 100%;
+#projects .tarokka {
+    background: url(../images/tarokka-preview.png);
+}
+
+#projects .squares {
+    background: url(../images/hit-squares-preview.png);
+}
+
+#projects .project {
+    background-position: center top;
+    background-size: cover;
+    background-color: burlywood;
+    flex: 1 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    min-width: 250px;
+    margin: 5px;
+    color: black;
+    box-shadow: 0 0 10px black;
+    transition: all 0.3s ease-out;
+}
+
+#projects .big {
+    flex: 3 100%;
 }
 
 #projects .project:hover,
@@ -147,12 +164,9 @@ section .sec-container {
     opacity: 0;
     display: inline;
     padding: 5px;
-    background-color: #fff;
-    box-shadow: 0 0 10px black;
+    background-color: var(--primary-font-colour);
+    box-shadow: 0 0 10px var(--primary-bg-colour);
     border-radius: 10px;
-    position: absolute;
-    top: 0;
-    left: calc(50% - 55px);
     z-index: 30;    
     transition: all 0.3s ease-out;
     text-align: center;
@@ -202,4 +216,42 @@ footer {
     justify-content: center;
     background-color: var(--primary-bg-colour);
     color: var(--primary-font-colour);
+}
+
+/* Some media queries, so things look good on phones! */
+
+@media screen and (max-width: 960px) {
+    
+    .page-nav {
+        flex: 1 70%;
+    }
+    
+    /* Push the icons more to the right and vertical, to give the page links more space and to make these icons more visible. */
+    .web-nav {
+        align-items: baseline;
+    }
+    
+    .web-nav ul {
+        flex-direction: column;
+    }
+    
+}
+
+@media screen and (max-width: 580px) {
+    
+        body {
+            font-size: 13px;
+        }
+    
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 13px;
+    }
+
+    #skills h4 {
+        margin-right: 15px;
+    }
 }
