@@ -19,48 +19,82 @@ a {
     text-decoration: none;
 }
 
-/* Now comes the Header and Hero styles. */
+.link-style {
+    padding: 10px;
+    background-color: var(--primary-font-colour);
+    border-radius: 15px;
+    color: var(--primary-bg-colour);
+    transition: 0.3s ease all;
+}
+
+.link-style:hover,
+.link-style:focus {
+    background-color: var(--primary-bg-colour);
+    color: var(--primary-font-colour);
+}
+
+/* Now comes the Header, Footer and Hero styles. The Header and Footer share a lot of common styling, so I'm keeping them together. */
 
 header {
-    height: 5vh;
+    height: 8vh;
     display: flex;
-    justify-content: space-between;
+    padding-top: 20px;
+    justify-content: center;
     background-color: var(--primary-bg-colour);
     position: sticky;
     top: 0;
     z-index: 50;
 }
 
-header nav {
+header nav,
+footer nav {
     display: flex;
-    align-items: center;
 }
 
-header ul {
+header ul,
+footer ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-header a {
+header li,
+footer li {
+    margin: 0 20px;
+}
+
+header a,
+footer a {
     color: var(--primary-font-colour);
 }
 
-/* Put the opposite ul and li margins together to save space */
-.page-nav ul,
-.web-nav li {
-    margin-left: 10px;
+footer {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-bg-colour);
+    color: var(--primary-font-colour);
 }
 
-.page-nav li,
-.web-nav ul {
-    margin-right: 10px;
+footer h2 {
+    border-bottom: 2px solid var(--primary-font-colour);
+}
+
+footer a {
+    padding: 10px;
+    background-color: var(--primary-font-colour);
+    border-radius: 15px;
+    color: var(--primary-bg-colour);
+    transition: 0.3s ease all;
 }
 
 .hero {
     background-color: var(--primary-bg-colour);
-    height: 95vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +122,8 @@ main {
     flex-direction: column;
 }
 
-main h2 {
+main h2,
+footer h2 {
     margin-top: 0;
     font-size: 28px;
     padding: 0 50px 10px 50px;
@@ -196,6 +231,7 @@ section .sec-container {
 
 #skills li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -209,49 +245,75 @@ section .sec-container {
     flex: 0 80%;
 }
 
-/* And here's the Footer's styles, at long last. Little tiny footer. */
-
-footer {
-    display: flex;
-    justify-content: center;
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
-}
 
 /* Some media queries, so things look good on phones! */
 
 @media screen and (max-width: 960px) {
     
-    .page-nav {
-        flex: 1 70%;
+    #skills p {
+        flex: 0 70%;
     }
     
-    /* Push the icons more to the right and vertical, to give the page links more space and to make these icons more visible. */
-    .web-nav {
-        align-items: baseline;
+    header a,
+    footer a {
+        font-size: 24px;
     }
-    
-    .web-nav ul {
+}
+
+@media screen and (max-width: 780px) {
+
+    body {
+        font-size: 20px;
+    }
+
+    header {
+        height: 20vh;
+    }
+
+    header nav {
+
+    }
+
+    .hero {
+        height: 80vh;
+    }
+
+    main h2 {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    #skills li {
         flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid var(--primary-bg-colour);
     }
-    
+
+    #skills h3 {
+        font-size: 32px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    #skills p {
+        text-align: center;
+    }
+
+    footer h2 {
+        font-size: 40px;
+    }
 }
 
 @media screen and (max-width: 580px) {
     
-        body {
-            font-size: 13px;
-        }
-    
-    .hero h1 {
-        font-size: 24px;
-    }
-    
-    .hero p {
-        font-size: 13px;
+    /* Some things aren't necessary or useful on tiny screens, so they go bye-bye */
+    .optional {
+        display: none;
     }
 
-    #skills h4 {
-        margin-right: 15px;
+    header {
+        padding-top: 20px;
+        position: static;
     }
+
 }
