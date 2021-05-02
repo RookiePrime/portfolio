@@ -1,14 +1,15 @@
 /* The basics, setting things to a nice neutral before styling proper. */
 
 :root {
-    --primary-font-colour: whitesmoke;
-    --primary-bg-colour: black;
+    --primary-colour: #a8adba;
+    --secondary-colour: black;
+    --highlight-colour: whitesmoke;
 }
 
 body {
    margin: 0;
    padding: 0;
-   background-color: #a8adba;
+   background-color: var(--primary-colour);
    font-family: Arial, Helvetica, sans-serif;
    display: flex;
    flex-direction: column;
@@ -21,16 +22,16 @@ a {
 
 .link-style {
     padding: 10px;
-    background-color: var(--primary-font-colour);
+    background-color: var(--primary-colour);
     border-radius: 15px;
-    color: var(--primary-bg-colour);
+    color: var(--secondary-colour);
     transition: 0.3s ease all;
 }
 
 .link-style:hover,
 .link-style:focus {
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
 }
 
 /* Now comes the Header, Footer and Hero styles. The Header and Footer share a lot of common styling, so I'm keeping them together. */
@@ -38,9 +39,8 @@ a {
 header {
     height: 8vh;
     display: flex;
-    padding-top: 20px;
     justify-content: center;
-    background-color: var(--primary-bg-colour);
+    background-color: var(--secondary-colour);
     position: sticky;
     top: 0;
     z-index: 50;
@@ -58,6 +58,7 @@ footer ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -68,38 +69,34 @@ footer li {
 
 header a,
 footer a {
-    color: var(--primary-font-colour);
+    color: var(--primary-colour);
 }
 
 footer {
-    padding: 40px 20px;
+    padding: 10px 20px 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
-}
-
-footer h2 {
-    border-bottom: 2px solid var(--primary-font-colour);
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
 }
 
 footer a {
     padding: 10px;
-    background-color: var(--primary-font-colour);
+    background-color: var(--primary-colour);
     border-radius: 15px;
-    color: var(--primary-bg-colour);
+    color: var(--secondary-colour);
     transition: 0.3s ease all;
 }
 
 .hero {
-    background-color: var(--primary-bg-colour);
+    background-color: var(--secondary-colour);
     height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--primary-font-colour);
+    color: var(--highlight-colour);
 }
 
 .hero h1 {
@@ -111,8 +108,8 @@ footer a {
     font-size: 16px;
     font-style: italic;
     padding: 5px 50px;
-    border-top: 1px solid var(--primary-font-colour);
-    border-bottom: 1px solid var(--primary-font-colour);
+    border-top: 1px solid var(--primary-colour);
+    border-bottom: 1px solid var(--primary-colour);
 }
 
 /* Here's the Main stuffs, the big beefy section with sections within it. */
@@ -127,17 +124,21 @@ footer h2 {
     margin-top: 0;
     font-size: 28px;
     padding: 0 50px 10px 50px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--secondary-colour);
 }
 
 section {
     padding: 40px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 section .sec-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
+    margin: 0;
 }
 
 /* First and foremost, the styles for the main event: the Projects */
@@ -146,6 +147,18 @@ section .sec-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+#projects a {
+    flex: 1 30%;
+}
+
+#projects .big {
+    flex: 2 100%;
+}
+
+#projects .big .project {
+    height: 20vw;
 }
 
 /* These particular selectors need to come before the general .project one, or their style will be overwritten. */
@@ -165,10 +178,10 @@ section .sec-container {
     background-position: center top;
     background-size: cover;
     background-color: burlywood;
-    flex: 1 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 10vw;
     min-height: 150px;
     min-width: 250px;
     margin: 5px;
@@ -177,9 +190,6 @@ section .sec-container {
     transition: all 0.3s ease-out;
 }
 
-#projects .big {
-    flex: 3 100%;
-}
 
 #projects .project:hover,
 #projects .project:focus {
@@ -199,8 +209,8 @@ section .sec-container {
     opacity: 0;
     display: inline;
     padding: 5px;
-    background-color: var(--primary-font-colour);
-    box-shadow: 0 0 10px var(--primary-bg-colour);
+    background-color: var(--primary-colour);
+    box-shadow: 0 0 10px var(--secondary-colour);
     border-radius: 10px;
     z-index: 30;    
     transition: all 0.3s ease-out;
@@ -210,22 +220,28 @@ section .sec-container {
 /* Secondly, styling for me rambling about me in the About section */
 
 #about {
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
 }
 
-#about h2 {
-    border-bottom: 2px solid var(--primary-font-colour);
+#about h2,
+footer h2 {
+    border-bottom: 2px solid var(--primary-colour);
 }
 
 #about p {
     padding: 0 5px;
+    line-height: 1.5;
 }
 
 /* Third and finally, the stylez for the Skills that should hopefully, in due time, pay the bills */
 
+#skills {
+    color: var(--secondary-colour);
+}
+
 #skills ul {
-    padding: 10px 40px;
+    padding: 10px 0;
     list-style-type: none;
 }
 
@@ -248,7 +264,7 @@ section .sec-container {
 
 /* Some media queries, so things look good on phones! */
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1024px) {
     
     #skills p {
         flex: 0 70%;
@@ -262,20 +278,22 @@ section .sec-container {
 
 @media screen and (max-width: 780px) {
 
+    /* Mosto of the adjustments start here. Just little fixes to make things center and cozy up as the screen gets smaller, while making text bigger so it's legible. */
+
     body {
         font-size: 20px;
     }
 
     header {
-        height: 20vh;
+        height: 7vh;
     }
 
-    header nav {
-
+    header li {
+        margin: 10px;
     }
 
     .hero {
-        height: 80vh;
+        height: 93vh;
     }
 
     main h2 {
@@ -283,10 +301,27 @@ section .sec-container {
         text-align: center;
     }
 
+    #projects .big .project {
+        height: 100vw;
+    }
+
+    #projects .project {
+        height: 50vw;
+        margin-bottom: 20px;
+    }
+
+    #projects .preview-text {
+        font-size: 20px;
+    }
+
     #skills li {
         flex-direction: column;
         justify-content: center;
-        border-bottom: 1px solid var(--primary-bg-colour);
+        border-bottom: 1px solid var(--secondary-colour);
+    }
+
+    #skills li:first-child {
+        border-top: 1px solid var(--secondary-colour);
     }
 
     #skills h3 {
@@ -306,14 +341,17 @@ section .sec-container {
 
 @media screen and (max-width: 580px) {
     
-    /* Some things aren't necessary or useful on tiny screens, so they go bye-bye */
-    .optional {
-        display: none;
+    header {
+        position: static;
+        height: 15vh;
     }
 
-    header {
-        padding-top: 20px;
-        position: static;
+    .hero {
+        height: 85vh;
+    }
+
+    footer li {
+        margin: 0 5px;
     }
 
 }

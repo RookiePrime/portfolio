@@ -1,16 +1,10 @@
 # Portfolio Website
 
 ## What is This?
-My full stack development portfolio page. It will, in due time, link to all my various impressive projects. And possibly some unimpressive ones too!
+My web developer portfolio page. It showcases my design skills as well as my various projects; past, present and future.
 
-## Will it be Professional?
-One day. One day...
+## Preview
 
-## What skills does it showcase?
-Right now, HTML, CSS and Javascript, and one of my projects is a little React-based thingydoodle. But more will come, both in my understanding of different technologies and in my understandings of the ones I know already.
-
-## Sounds Fancy, but What Does It Look Like?
-Behold!
 ![The ugly first effort!](./assets/images/portfolio-0.1.png)
 
 ## Well Where is it, Then?
