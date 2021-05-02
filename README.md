@@ -5,7 +5,7 @@ My web developer portfolio page. It showcases my design skills as well as my var
 
 ## Preview
 
-![The ugly first effort!](./assets/images/portfolio-0.1.png)
+![The ugly first effort!](./assets/images/portfolio-1.0.png)
 
 ## Well Where is it, Then?
 [The live page is right here!](https://rookieprime.github.io/portfolio/)
