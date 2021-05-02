@@ -1,14 +1,15 @@
 /* The basics, setting things to a nice neutral before styling proper. */
 
 :root {
-    --primary-font-colour: whitesmoke;
-    --primary-bg-colour: black;
+    --primary-colour: #a8adba;
+    --secondary-colour: black;
+    --highlight-colour: whitesmoke;
 }
 
 body {
    margin: 0;
    padding: 0;
-   background-color: #a8adba;
+   background-color: var(--primary-colour);
    font-family: Arial, Helvetica, sans-serif;
    display: flex;
    flex-direction: column;
@@ -19,53 +20,83 @@ a {
     text-decoration: none;
 }
 
-/* Now comes the Header and Hero styles. */
+.link-style {
+    padding: 10px;
+    background-color: var(--primary-colour);
+    border-radius: 15px;
+    color: var(--secondary-colour);
+    transition: 0.3s ease all;
+}
+
+.link-style:hover,
+.link-style:focus {
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+}
+
+/* Now comes the Header, Footer and Hero styles. The Header and Footer share a lot of common styling, so I'm keeping them together. */
 
 header {
-    height: 5vh;
+    height: 8vh;
     display: flex;
-    justify-content: space-between;
-    background-color: var(--primary-bg-colour);
+    justify-content: center;
+    background-color: var(--secondary-colour);
     position: sticky;
     top: 0;
-    z-index: 30;
+    z-index: 50;
 }
 
-header nav {
+header nav,
+footer nav {
     display: flex;
-    align-items: center;
 }
 
-header ul {
+header ul,
+footer ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-header a {
-    color: var(--primary-font-colour);
+header li,
+footer li {
+    margin: 0 20px;
 }
 
-/* Put the opposite ul and li margins together to save space */
-.page-nav ul,
-.web-nav li {
-    margin-left: 10px;
+header a,
+footer a {
+    color: var(--primary-colour);
 }
 
-.page-nav li,
-.web-nav ul {
-    margin-right: 10px;
+footer {
+    padding: 10px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
+}
+
+footer a {
+    padding: 10px;
+    background-color: var(--primary-colour);
+    border-radius: 15px;
+    color: var(--secondary-colour);
+    transition: 0.3s ease all;
 }
 
 .hero {
-    background-color: var(--primary-bg-colour);
-    height: 95vh;
+    background-color: var(--secondary-colour);
+    height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--primary-font-colour);
+    color: var(--highlight-colour);
 }
 
 .hero h1 {
@@ -77,8 +108,8 @@ header a {
     font-size: 16px;
     font-style: italic;
     padding: 5px 50px;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid var(--primary-colour);
+    border-bottom: 1px solid var(--primary-colour);
 }
 
 /* Here's the Main stuffs, the big beefy section with sections within it. */
@@ -88,21 +119,26 @@ main {
     flex-direction: column;
 }
 
-main h2 {
+main h2,
+footer h2 {
     margin-top: 0;
     font-size: 28px;
     padding: 0 50px 10px 50px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--secondary-colour);
 }
 
 section {
     padding: 40px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 section .sec-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
+    margin: 0;
 }
 
 /* First and foremost, the styles for the main event: the Projects */
@@ -113,44 +149,105 @@ section .sec-container {
     justify-content: center;
 }
 
+#projects a {
+    flex: 1 30%;
+}
+
+#projects .big {
+    flex: 2 100%;
+}
+
+#projects .big .project {
+    height: 20vw;
+}
+
+/* These particular selectors need to come before the general .project one, or their style will be overwritten. */
+#projects .pokecards {
+    background: url(../images/pokeCards-preview.png);
+}
+
+#projects .tarokka {
+    background: url(../images/tarokka-preview.png);
+}
+
+#projects .squares {
+    background: url(../images/hit-squares-preview.png);
+}
+
 #projects .project {
+    background-position: center top;
+    background-size: cover;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
     min-height: 150px;
     min-width: 250px;
-    flex: 0 30%;
-    background-color: burlywood;
     margin: 5px;
+    color: black;
     box-shadow: 0 0 10px black;
     transition: all 0.3s ease-out;
 }
 
-#projects .project:hover {
+
+#projects .project:hover,
+#projects .project:focus {
     transform: scale(1.2);
+    z-index: 20;
+}
+
+#projects .project:hover .preview-text,
+#projects .project:focus .preview-text {
+    opacity: 1;
+}
+
+#projects .preview-text {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    display: inline;
+    padding: 5px;
+    background-color: var(--primary-colour);
+    box-shadow: 0 0 10px var(--secondary-colour);
+    border-radius: 10px;
+    z-index: 30;    
+    transition: all 0.3s ease-out;
+    text-align: center;
 }
 
 /* Secondly, styling for me rambling about me in the About section */
 
 #about {
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
+    background-color: var(--secondary-colour);
+    color: var(--primary-colour);
 }
 
-#about h2 {
-    border-bottom: 2px solid var(--primary-font-colour);
+#about h2,
+footer h2 {
+    border-bottom: 2px solid var(--primary-colour);
 }
 
 #about p {
     padding: 0 5px;
+    line-height: 1.5;
 }
 
 /* Third and finally, the stylez for the Skills that should hopefully, in due time, pay the bills */
 
+#skills {
+    color: var(--secondary-colour);
+}
+
 #skills ul {
-    padding: 10px 40px;
+    padding: 10px 0;
     list-style-type: none;
 }
 
 #skills li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -164,11 +261,97 @@ section .sec-container {
     flex: 0 80%;
 }
 
-/* And here's the Footer's styles, at long last. Little tiny footer. */
 
-footer {
-    display: flex;
-    justify-content: center;
-    background-color: var(--primary-bg-colour);
-    color: var(--primary-font-colour);
+/* Some media queries, so things look good on phones! */
+
+@media screen and (max-width: 1024px) {
+    
+    #skills p {
+        flex: 0 70%;
+    }
+    
+    header a,
+    footer a {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+
+    /* Mosto of the adjustments start here. Just little fixes to make things center and cozy up as the screen gets smaller, while making text bigger so it's legible. */
+
+    body {
+        font-size: 20px;
+    }
+
+    header {
+        height: 7vh;
+    }
+
+    header li {
+        margin: 10px;
+    }
+
+    .hero {
+        height: 93vh;
+    }
+
+    main h2 {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    #projects .big .project {
+        height: 100vw;
+    }
+
+    #projects .project {
+        height: 50vw;
+        margin-bottom: 20px;
+    }
+
+    #projects .preview-text {
+        font-size: 20px;
+    }
+
+    #skills li {
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 1px solid var(--secondary-colour);
+    }
+
+    #skills li:first-child {
+        border-top: 1px solid var(--secondary-colour);
+    }
+
+    #skills h3 {
+        font-size: 32px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    #skills p {
+        text-align: center;
+    }
+
+    footer h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    
+    header {
+        position: static;
+        height: 15vh;
+    }
+
+    .hero {
+        height: 85vh;
+    }
+
+    footer li {
+        margin: 0 5px;
+    }
+
 }
