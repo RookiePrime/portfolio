@@ -169,6 +169,10 @@ section {
     background: url(../images/hit-squares-preview.png);
 }
 
+#projects .crunch-time {
+    background: url(../images/crunch-time-preveiw.png);
+}
+
 #projects .project {
     background-position: center top;
     background-size: cover;
