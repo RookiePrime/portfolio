@@ -173,6 +173,10 @@ section {
     background: url(../images/crunch-time-preveiw.png);
 }
 
+#projects .bardic {
+    background: url(../images/bardic-preview.jpeg);
+}
+
 #projects .project {
     background-position: center top;
     background-size: cover;
@@ -251,7 +255,7 @@ footer h2 {
     align-items: center;
 }
 
-#skills h4 {
+#skills h3 {
     font-weight: bold;
     margin: 0;
     flex: 0 20%;
